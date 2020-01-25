@@ -1,3 +1,4 @@
+//las clases se les llama prototipos
 function Persona(nombre, apellido) {
   this.nombre = nombre
   this.apellido = apellido
