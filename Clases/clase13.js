@@ -18,7 +18,6 @@ const adelgazar = persona => persona.peso -= INCREMENTO_PESO
 
 for (var i = 1; i <= DIAS_DEL_ANO; i++) {
   var random = Math.random()
-
   if (random < 0.25) {
     aumentarDePeso(nicolas)
   } else if (random < 0.5) {
