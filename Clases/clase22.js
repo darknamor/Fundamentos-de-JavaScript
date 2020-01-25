@@ -10,10 +10,10 @@ Persona.prototype.saludar = () => {
 
 Persona.prototype.soyAlto = () => this.altura > 1.8
 
-var sacha = new Persona('Sacha', 'Lifszyc', 1.72)
+var nicolas = new Persona('Nicolas', 'Miranda', 1.75)
 var erika = new Persona('Erika', 'Luna', 1.65)
 var arturo = new Persona('Arturo', 'Martinez', 1.89)
 
-sacha.soyAlto()
+nicolas.soyAlto()
 erika.soyAlto()
 arturo.soyAlto()
