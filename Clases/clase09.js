@@ -7,7 +7,10 @@ var Nicolas = {
 var otraPersona = {
   nombre: 'Nicolas'
 }
-
+//son distintos aunque se desglose nicolas dentro de otra persona
+/* var otraPersona = {
+    ...Nicolas
+} */
 if(x==y){
     console.log("Son iguales");
 }
