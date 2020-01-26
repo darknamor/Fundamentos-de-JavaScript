@@ -4,6 +4,10 @@
     <meta charset="utf-8" />
     <title>Simon Dice</title>
     <link rel="stylesheet" type="text/css" href="css/estilos.css" />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+    ></script>
     <!-- <script type="text/javascript" src="js/scripts.js"></script> -->
   </head>
   <body>
@@ -36,7 +40,7 @@
     inicializar() {
       this.elegirColor = this.elegirColor.bind(this);
       this.siguienteNivel = this.siguienteNivel.bind(this);
-      btnEmpezar.classList.add("hide");
+      this.toggleBtnEmpezar();
       this.nivel = 1;
       this.colores = {
         celeste,
@@ -44,6 +48,15 @@
         naranja,
         verde
       };
+    }
+    toggleBtnEmpezar(){
+      if(btnEmpezar.classList.contains('hide')){
+        btnEmpezar.classList.remove("hide");
+      }
+      else{
+        btnEmpezar.classList.add("hide");
+      }
+      
     }
     generarSecuencia() {
       //con fill ponemos todos los elementos en 0 es necesaria para usar map ya que este trabaja con elementos no con nulls
@@ -116,6 +129,7 @@
           this.eliminarEventosClick();
           if (this.nivel === ULTIMO_NIVEL + 1) {
             //gano!
+            this.ganoElJuego();
           } else {
             setTimeout(this.siguienteNivel, 1000);
           }
@@ -123,8 +137,20 @@
       } else {
         //perdio
         console.log("Perdiste");
+        this.perdioElJuego();
       }
       console.log(ev);
+    }
+    ganoElJuego() {
+      swal("Felicidades", "Ganaste el juego", "success").then(() => {
+        this.inicializar();
+      });
+    }
+    perdioElJuego() {
+      swal("Ouhhh", "Perdiste el juego", "error").then(() => {
+        this.eliminarEventosClick();
+        this.inicializar();
+      });
     }
   }
 
